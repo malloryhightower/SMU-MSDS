@@ -1,0 +1,79 @@
+---
+title: "HW4"
+author: "Mallory Hightower"
+date: "June 6, 2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## 1
+###a
+
+Load the package:
+
+```{r}
+library(fivethirtyeight)
+data(package="fivethirtyeight")
+```
+
+### b
+
+Load the data set:
+
+```{r}
+df<-fivethirtyeight:: college_recent_grads
+```
+
+###c
+Show the URL:
+
+https://github.com/rudeboybert/fivethirtyeight
+
+###d
+Dimensions and column names:
+```{r}
+dim(df)
+colnames(df)
+```
+
+## 2
+
+###a
+
+Column names and the number of columns in the data set:
+``` {r}
+colnames(df)
+ncol(df)
+```
+
+###b
+Look at the count of college majors:
+``` {r}
+major_count<-sort(table(df$major_category))
+major_count
+```
+###c
+Barplot of the majors:
+```{r}
+par(las=2)
+barplot(major_count, main="Count of Majors", xlab="Number", ylab="Major", horiz=TRUE, col=c(3,6) , 
+        names.arg = c("Interdisciplinary","Communications & Journalism", "Law & Public Policy",
+                      "Industrial Arts & Consumer Services", "Arts", "Psychology &  Work",
+                      "Social Science", "Agriculture & Natural Resources", "Physical Sciences",
+                      "Computers & Mathematics", "Health", "Business" ,"Biology & Life Science" ,
+                      "Humanities & Liberal Arts","Education ", "Engineering"));
+```
+
+###d
+Write the data to a csv file:
+```{r}
+write.csv(df, "df.csv")
+```
+The data will be on my Github!
+
+##URL to my GitHUb
+
+https://github.com/malloryhightower/SMU-MSDS
